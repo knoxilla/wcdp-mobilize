@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# TODO validate meaningful results
+# TODO convert json into html in 'fragit'
+# TODO add a confirmation before 'mobit'
+
+# fetch the data and put it in coming_up.json
+./getit > coming_up.json
+
+# push that data into fragment.html
+./fragit
+
+# upload fragment.html to WCDP so we can pick it up via [shortcode]
+./mobit

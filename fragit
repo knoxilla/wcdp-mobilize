@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# echo '<pre>' > fragment.html
+# cat coming_up.json >> fragment.html
+# echo '</pre>' >> fragment.html
+
+jinja -d coming_up.json jinja-mobi.j2 > fragment.html
+

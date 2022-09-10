@@ -1,0 +1,44 @@
+
+<div style="display: flex;" id="mbz-feed-wrapper">
+ {% for e in events %}
+
+  {% if e.event_image %}
+
+    <div class="mbz-feed-item" style="min-width: 300px; width: 300px; vertical-align: middle; margin: 1rem; scroll-snap-align: center; white-space: normal; min-height: 414px; height: 414px;">
+        <div style="display: flex; width: 300; flex-diretion: column; flex: 1 1 auto; padding: .5rem 1rem">
+            <div>
+
+               <a tabindex="-1"
+               aria-label="Get details and sign up for &quot;{{e.title}}&quot;, {{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}"
+               href="{{e.url}}">
+                <div>
+                     {{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}
+                    <div class="x">
+                        <h6><span>{{e.title}}</span></h6>
+                    </div>
+                </div>
+              </a>
+
+          {% if e.event_image %}
+              <a tabindex="-1"
+               aria-label="{{e.title}}"
+               href="{{e.url}}">
+                <div>
+                    <figure">
+                        <div>
+                        		<img width="300"
+                                 alt="{{e.title}} organized by {{e.org_name}}"
+                                 src="{{e.event_image}}"/>
+                        </div>
+                    </figure>
+                </div>
+              </a>
+          {% endif %}
+
+		</div></div></div>
+
+	 {% endif %}
+
+  {% endfor %}
+  <p style="display:none;" class="last-updated">whenever man</p>
+</div>

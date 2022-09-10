@@ -1,0 +1,21 @@
+
+<div id="mobilize-feed-wrapper">
+ {% for e in events %}
+    <div style="margin-bottom: 1em;" class="mobilize-event">
+      {{ e.event_start }}
+      <span style="font-weight: strong">{{ e.title }}</span>
+      with
+      <span style="font-style: italic">{{ e.org_name }}</span>
+      <p>
+        {% if e.event_image %}
+        	<img src="{{e.event_image}}" width="240" style="float: right;" />
+        {% endif %}
+		   {{e.description}}
+        }
+      </p>
+      <a title="to Mobilize feed for {{e.org_name}}"
+      href="{{e.org_feed}}">More events from {{e.org_name}}</a>
+    </div>
+  {% endfor %}
+  <p class="last-updated"></p>
+</div>
