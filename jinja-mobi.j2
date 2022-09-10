@@ -12,28 +12,19 @@
                aria-label="Get details and sign up for &quot;{{e.title}}&quot;, {{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}"
                href="{{e.url}}">
                 <div>
-                     {{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}
-                    <div class="x">
-                        <h6><span>{{e.title}}</span></h6>
-                    </div>
-                </div>
+									<span class="title">{{e.title}}</span>
+                  {{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}
+                  <figure">
+                      <div>
+                      		<img width="300"
+                               alt="et details and sign up for &quot;{{e.title}}&quot; hosted by {{e.org_name}}"
+                               src="{{e.event_image}}"/>
+                      </div>
+                  </figure>
+                  <span class="hosted-by">Hosted by: {{e.org_name}}</span>
+                  <span class="locality">{{e.locality}}, MI</span>
+	              </div>
               </a>
-
-          {% if e.event_image %}
-              <a tabindex="-1"
-               aria-label="{{e.title}}"
-               href="{{e.url}}">
-                <div>
-                    <figure">
-                        <div>
-                        		<img width="300"
-                                 alt="{{e.title}} organized by {{e.org_name}}"
-                                 src="{{e.event_image}}"/>
-                        </div>
-                    </figure>
-                </div>
-              </a>
-          {% endif %}
 
 		</div></div></div>
 

@@ -7,6 +7,8 @@ RADIUS=17
 CHUNK=20
 
 NOW=$(date +%s)
+# look for thing at least an hour out
+NOW=$(($NOW + 3600))
 START="gte_${NOW}"
 
 # look ahead up to one week = 86400 X 7
@@ -16,7 +18,7 @@ THEN=$(($THEN + 604800))
 END="lte_${THEN}"
 
 http "${API_BASE}/organizations/${ORG_ID}/events?&zipcode=${CENTER}&max_dist=${RADIUS}&per_page=${CHUNK}&timeslot_start=${START}&timeslot_start=${END}" \
-  | jq '.data[] | .id as $id | .title as $title | .featured_image_url as $event_image | .browser_url as $url | .event_type as $event_type | .description as $description | .timeslots[0].start_date as $startish | .sponsor | .event_feed_url as $org_feed | .name as $org_name  | {$id,$title,$url,$startish,$event_image,$event_type,$org_name,$org_feed,org_type,is_virtual,$description}' \
+  | jq '.data[] | .id as $id | .title as $title | .featured_image_url as $event_image | .browser_url as $url | .event_type as $event_type | .description as $description | .location.locality as $locality | .timeslots[0].start_date as $startish | .sponsor | .event_feed_url as $org_feed | .name as $org_name  | {$id,$title,$url,$locality,$startish,$event_image,$event_type,$org_name,$org_feed,org_type,is_virtual,$description}' \
   | jq -s . \
   | jq '. | sort_by(.startish)' \
   | jq 'map( . + { "event_start": ( .startish | strflocaltime("%A, %b %d @ %-I%p") ) | tostring } )' \
