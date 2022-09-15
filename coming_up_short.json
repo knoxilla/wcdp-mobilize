@@ -1,0 +1,64 @@
+{
+  "events": [
+    {
+      "id": 493646,
+      "title": "Michigan Postcards to Defend the Democratic House Majority",
+      "url": "https://www.mobilize.us/washtenawdems/event/493646/",
+      "locality": "Ann Arbor",
+      "startish": 1663304400,
+      "event_image": "https://mobilizeamerica.imgix.net/uploads/event/2022%20mailbox_cropped%20%281%29%20%281%29_20220817135354130949.jpg",
+      "event_type": "POSTCARD_WRITING",
+      "org_name": "Progressive Turnout Project",
+      "org_feed": "https://www.mobilize.us/ptp/",
+      "org_type": "C4",
+      "is_virtual": null,
+      "description": "Help us make sure Democrats hold the House majority and potentially expand it this November by writing postcard to rally Democrats to vote in 41 competitive House races from California to Maine this November, including three House districts in Michigan: MI-03 (Scholten), MI-07 (Slotkin), MI-08 (Kildee). Our goal is to send 6 million postcards, so we need your help!\n\nYou'll need to provide your own postcards and stamps for this program. We recommend https://progressivepostcards.ourproshop.com, an online store that sells postcards with several of our designs for less than most sellers. \n\nAfter you sign up, we'll email you a list of voters and instructions, which will include an October mailing date and three message options.\n\nClick the \"Take me to the sign up\" button to go to the full sign-up page. \n\nPostcards to Swing States is a project of Progressive Turnout Project. For more information, visit us at turnoutpac.org/postcards or send us an email.",
+      "event_start": "Friday, Sep 16 @ 1AM"
+    },
+    {
+      "id": 470727,
+      "title": "Knocking Doors in Ann Arbor!",
+      "url": "https://www.mobilize.us/washtenawdems/event/470727/",
+      "locality": "Ann Arbor",
+      "startish": 1663336800,
+      "event_image": "https://mobilizeamerica.imgix.net/uploads/event/Copy%20of%20ss5_20220406162700795969.png",
+      "event_type": "CANVASS",
+      "org_name": "ONECampaign for Michigan",
+      "org_feed": "https://www.mobilize.us/onecampaignformichigan/",
+      "org_type": "CAMPAIGN",
+      "is_virtual": null,
+      "description": "Join us to knock on doors to get voters engaged and excited early this year for the Midterm Elections! Let's canvass together to remind voters about the importance of this upcoming election and to make sure we elect Democrats up and down the ballot this November!",
+      "event_start": "Friday, Sep 16 @ 10AM"
+    },
+    {
+      "id": 448014,
+      "title": "Knocking Doors in Ypsi!",
+      "url": "https://www.mobilize.us/washtenawdems/event/448014/",
+      "locality": "Ypsilanti",
+      "startish": 1663336800,
+      "event_image": "https://mobilizeamerica.imgix.net/uploads/event/Copy%20of%20ss5_20220406162700795969.png",
+      "event_type": "CANVASS",
+      "org_name": "ONECampaign for Michigan",
+      "org_feed": "https://www.mobilize.us/onecampaignformichigan/",
+      "org_type": "CAMPAIGN",
+      "is_virtual": null,
+      "description": "Join us to knock on doors to get voters engaged and excited early this year for the Midterm Elections! Let's canvass together to remind voters about the importance of this upcoming election and to make sure we elect Democrats up and down the ballot this November!",
+      "event_start": "Friday, Sep 16 @ 10AM"
+    },
+    {
+      "id": 493708,
+      "title": "September Canvassing with Conlin",
+      "url": "https://www.mobilize.us/washtenawdems/event/493708/",
+      "locality": "Ann Arbor",
+      "startish": 1663347600,
+      "event_image": "https://mobilizeamerica.imgix.net/uploads/event/Fundraiser%20Flyer%20-2_20220915010850793994.png",
+      "event_type": "CANVASS",
+      "org_name": "Jennifer Conlin for State Rep",
+      "org_feed": "https://www.mobilize.us/jenniferconlinforstaterep/",
+      "org_type": "CAMPAIGN",
+      "is_virtual": null,
+      "description": "join staff and volunteers to canvass the newly drawn 48th House District!",
+      "event_start": "Friday, Sep 16 @ 1PM"
+    }
+  ]
+}

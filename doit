@@ -1,14 +1,37 @@
 #!/usr/bin/env bash
 
+echo "🚀 Blastoff!"
 # TODO validate meaningful results
 # TODO convert json into html in 'fragit'
 # TODO add a confirmation before 'mobit'
 
 # fetch the data and put it in coming_up.json
 ./getit > coming_up.json
+echo "✅ Got data from Mobilize..."
 
-# push that data into fragment.html
+# push that data into fragment*.html
 ./fragit
+echo "✅ Parsed into embed fragments..."
 
-# upload fragment.html to WCDP so we can pick it up via [shortcode]
-./mobit
+# upload fragment*.html to WCDP so we can embed via [shortcode]
+RESULT=$(./mobit)
+# TODO chck sftp exit codes and make a note if things are awry
+# echo $?
+# echo ${RESULT}
+echo "✅ Uploaded for shortcodes..."
+
+# clear page cache for https://www.washtenawdems.org/take-action-at-mobilize/
+wp --ssh=wcdp/home/washten1/public_html \
+  w3-total-cache flush post --post_id=19629
+echo "✅ Purged page page for embed @ /take-action-at-mobilize..."
+
+# TODO also purge page cache for homepage if embedded
+# TODO verify https req gets a 200 and a new eTag for our targets?
+
+echo -e "🪂 Splashdown! All done! 😎"
+
+# TODO offer to visit one or more embed pages to visually check it out?
+# TODO or copy url/urls into clipboard?
+
+# open "https://www.washtenawdems.org/take-action-at-mobilize"
+# open "https://www.washtenawdems.org/"

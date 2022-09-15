@@ -1,35 +1,30 @@
 
-<div style="display: flex;" id="mbz-feed-wrapper">
+<div id="mbz-feed-wrapper" style="display: flex; flex-flow: row wrap; justify-content: center;" >
  {% for e in events %}
-
   {% if e.event_image %}
-
-    <div class="mbz-feed-item" style="min-width: 300px; width: 300px; vertical-align: middle; margin: 1rem; scroll-snap-align: center; white-space: normal; min-height: 414px; height: 414px;">
-        <div style="display: flex; width: 300; flex-diretion: column; flex: 1 1 auto; padding: .5rem 1rem">
-            <div>
-
-               <a tabindex="-1"
+    <div class="mbz-feed-item" style="outline: 0px solid blue; flex-basis: 20%; min-width: 300px; width: 300px; margin: 1em;">
+        <div>
+               <a tabindex="-1" target="_blank"
                aria-label="Get details and sign up for &quot;{{e.title}}&quot;, {{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}"
                href="{{e.url}}">
-                <div>
-									<span class="title">{{e.title}}</span>
-                  {{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}
-                  <figure">
+                <div style="font-weight: bold;">
+								  <figure">
                       <div>
                       		<img width="300"
                                alt="et details and sign up for &quot;{{e.title}}&quot; hosted by {{e.org_name}}"
                                src="{{e.event_image}}"/>
                       </div>
                   </figure>
-                  <span class="hosted-by">Hosted by: {{e.org_name}}</span>
-                  <span class="locality">{{e.locality}}, MI</span>
+                  <span style="display: block; font-size: 1.2em; color: #000;" class="title">{{e.title}}</span>
+                  <span style="display: block; font-size: 1em; color: #000" class="event-date">{{e.event_start[0:-2]}}{{e.event_start[-2:].lower()}}</span>
+
+                  <span style="display: block; line-height: 1.1em; font-size: 1em; color: #333;" class="org-locality">{{e.org_name}}</span>
+                  <span style="display: block; font-size: 1em; color: #333;">{{e.locality}}, MI</span></span>
 	              </div>
               </a>
-
-		</div></div></div>
-
+		    </div>
+    </div>
 	 {% endif %}
-
   {% endfor %}
   <p style="display:none;" class="last-updated">whenever man</p>
 </div>

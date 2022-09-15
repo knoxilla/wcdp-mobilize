@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-sftp wcdp:/home/washten1/public_html/wp-content/themes/wcdp <<< $"put fragment.html"
+sftp wcdp:/home/washten1/public_html/wp-content/themes/wcdp <<< $"mput fragment*.html"
 
