@@ -4,8 +4,21 @@
 # cat coming_up.json >> fragment.html
 # echo '</pre>' >> fragment.html
 
-cat coming_up.json | jq '.events[:4] as $events | {"events": $events}' > coming_up_short.json
+cat coming_up.json | jq '.events[:6] as $events | {"events": $events}' > coming_up_short.json
 
 jinja -d coming_up.json jinja-mobi.j2 > fragment.html
 
-jinja -d coming_up_short.json jinja-mobi.j2 > fragment_short.html
+jinja -d coming_up_short.json jinja-mobi.j2 > fragment_short_prep.html
+
+# should be a better way
+cat fragment_short_prep.html | sed s/min-width:.300px\;.width/min-width:\ 280px\;\ max-width/g > fragment_short.html
+
+# visible cross check
+
+colordiff -b fragment_short_prep.html fragment_short.html
+
+
+
+
+
+

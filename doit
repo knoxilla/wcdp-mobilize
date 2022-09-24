@@ -25,6 +25,11 @@ wp --ssh=wcdp/home/washten1/public_html \
   w3-total-cache flush post --post_id=19629
 echo "✅ Purged page page for embed @ /take-action-at-mobilize..."
 
+# clear page cache for https://www.washtenawdems.org/
+wp --ssh=wcdp/home/washten1/public_html \
+  w3-total-cache flush post --post_id=19662
+echo "✅ Purged page page for embed @ homepage..."
+
 # TODO also purge page cache for homepage if embedded
 # TODO verify https req gets a 200 and a new eTag for our targets?
 
