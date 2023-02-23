@@ -4,7 +4,7 @@
 # cat coming_up.json >> fragment.html
 # echo '</pre>' >> fragment.html
 
-cat coming_up.json | jq '.events[:6] as $events | {"events": $events}' > coming_up_short.json
+cat coming_up.json | jq '.events[:2] as $events | {"events": $events}' > coming_up_short.json
 
 jinja -d coming_up.json jinja-mobi.j2 > fragment.html
 
