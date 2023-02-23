@@ -3,7 +3,7 @@
 API_BASE="https://api.mobilize.us/v1"
 ORG_ID=1071
 CENTER=48103
-RADIUS=17
+RADIUS=100
 CHUNK=20
 
 NOW=$(date +%s)
@@ -17,7 +17,9 @@ THEN=$(($NOW + 604800))
 THEN=$(($THEN + 604800))
 END="lte_${THEN}"
 
-http "${API_BASE}/organizations/${ORG_ID}/events?&zipcode=${CENTER}&max_dist=${RADIUS}&per_page=${CHUNK}&timeslot_start=${START}&timeslot_start=${END}" \
+# http "${API_BASE}/organizations/${ORG_ID}/events?&zipcode=${CENTER}&max_dist=${RADIUS}&per_page=${CHUNK}&timeslot_start=${START}&timeslot_start=${END}" \
+
+http "${API_BASE}/organizations/${ORG_ID}/events?&zipcode=${CENTER}&max_dist=${RADIUS}&per_page=${CHUNK}&timeslot_start=${START}" \
   | jq '.data[] | .id as $id | .title as $title | .featured_image_url as $event_image | .browser_url as $url | .event_type as $event_type | .description as $description | .location.locality as $locality | .timeslots[0].start_date as $startish | .sponsor | .event_feed_url as $org_feed | .name as $org_name  | {$id,$title,$url,$locality,$startish,$event_image,$event_type,$org_name,$org_feed,org_type,is_virtual,$description}' \
   | jq -s . \
   | jq '. | sort_by(.startish)' \
