@@ -1,4 +1,5 @@
 stash
 credstash.log
 .DS_Store
-
+coming_up*.json
+fragment*.html
