@@ -6,9 +6,9 @@
 
 cat coming_up.json | jq '.events[:2] as $events | {"events": $events}' > coming_up_short.json
 
-jinja -d coming_up.json jinja-mobi.j2 > fragment.html
+jinja2 --format=json jinja-mobi.j2 coming_up.json > fragment.html
 
-jinja -d coming_up_short.json jinja-mobi.j2 > fragment_short_prep.html
+jinja2 --format=json jinja-mobi.j2 coming_up_short.json > fragment_short_prep.html
 
 # should be a better way
 cat fragment_short_prep.html | sed s/min-width:.300px\;.width/min-width:\ 280px\;\ max-width/g > fragment_short.html
