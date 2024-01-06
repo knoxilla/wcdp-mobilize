@@ -1,0 +1,18 @@
+{
+  "events": [
+    {
+      "id": 559689,
+      "title": "Volunteer with WCDP",
+      "url": "https://www.mobilize.us/washtenawdems/event/559689/",
+      "locality": "Ann Arbor",
+      "startish": 1681444800,
+      "event_image": "https://mobilizeamerica.imgix.net/uploads/event/WCDP%20Volunteer%20Pin%202_20230505154818687625.jpg",
+      "event_type": "INTEREST_FORM",
+      "org_name": "Washtenaw County Democratic Party",
+      "org_feed": "https://www.mobilize.us/washtenawdems/",
+      "org_type": "PARTY_COMMITTEE",
+      "is_virtual": null,
+      "event_start": "Friday, Apr 14 @ 12AM"
+    }
+  ]
+}
