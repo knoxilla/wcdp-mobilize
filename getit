@@ -24,12 +24,14 @@ END="lte_${THEN}"
 # http "${API_BASE}/organizations/${ORG_ID}/events?zipcode=${CENTER}&max_dist=${RADIUS}&event_types=INTEREST_FORM&per_page=${CHUNK}" \
 
 # EVENTS
-EVENTS=$(http "${API_BASE}/organizations/${ORG_ID}/events?organization_id=${ORG_ID}&event_types=INTEREST_FORM&event_types=OTHER&zipcode=${CENTER}&max_dist=${RADIUS}&per_page=${CHUNK}&timeslot_start=${START}&timeslot_start=${END}" \
+EVENTS=$(http "${API_BASE}/organizations/${ORG_ID}/events?organization_id=${ORG_ID}&zipcode=${CENTER}&max_dist=${RADIUS}&per_page=${CHUNK}&timeslot_start=${START}&timeslot_start=${END}" \
   | jq '.data[] | .id as $id | .title as $title | .featured_image_url as $event_image | .browser_url as $url | .event_type as $event_type | .description as $description | .location.locality as $locality | .timeslots[0].start_date as $startish | .sponsor | .event_feed_url as $org_feed | .name as $org_name  | {$id,$title,$url,$locality,$startish,$event_image,$event_type,$org_name,$org_feed,org_type,is_virtual,$description}' \
   | jq -s . \
   | jq '. | sort_by(.startish)' \
   | jq 'map( . + { "event_start": ( .startish | strflocaltime("%A, %b %d @ %-I%p") ) | tostring } )' \
   | jq '. | {"events": .}' | jq '.events')
+
+# echo -E "${EVENTS}"
 
 # INTEREST FORMS that no matter what the start date but they must end after NOW (in the future)
 #### Leaving out description field since we do not use it in jinja-mobi.j2 AND
@@ -41,8 +43,9 @@ INTEREST_FORMS=$(http "${API_BASE}/organizations/${ORG_ID}/events?organization_i
   | jq 'map( . + { "event_start": ( .startish | strflocaltime("%A, %b %d @ %-I%p") ) | tostring } )' \
   | jq '. | {"events": .}' | jq '.events')
 
+# echo -E "${INTEREST_FORMS}"
 
-echo -e "${EVENTS}${INTEREST_FORMS}" | jq -s 'add' | jq '. | {"events": .}'
+echo -E "${EVENTS}${INTEREST_FORMS}" | jq -s 'add' | jq '. | {"events": .}'
 
 
 # cat coming_up.json | jq '. | sort_by(.startish)' | jq '.[] | .startish | strflocaltime("%A, %B %-d, %-I:%M %p")'^C
